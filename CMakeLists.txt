@@ -9,5 +9,5 @@ include(GNUInstallDirs)
 include_directories("/opt/vc/include/")
 link_directories(/opt/vc/lib)
 
-add_subdirectory(mjbots/pi3hat)
-add_subdirectory(mjbots/moteus)
+add_subdirectory(pi3hat)
+add_subdirectory(moteus)
