@@ -4,25 +4,32 @@ project(moteus)
 #For threading
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
-find_library(pi3hat REQUIRED)
 
 set(SOURCE_DIR_MOTEUS ${PROJECT_SOURCE_DIR}/src)
 set(INCLUDE_DIR_MOTEUS ${PROJECT_SOURCE_DIR}/include)
+set(INCLUDE_DIR_PI3HAT ${PROJECT_SOURCE_DIR}/../pi3hat/include)
 include_directories(${PROJECT_SOURCE_DIR})
 include_directories(${SOURCE_DIR_MOTEUS})
 include_directories(${INCLUDE_DIR_MOTEUS})
+include_directories(${INCLUDE_DIR_PI3HAT})
 
-add_executable(moteus_control_example ${SOURCE_DIR_MOTEUS}/moteus_control_example.cc ${INCLUDE_DIR_MOTEUS}/realtime.h
-		${INCLUDE_DIR_MOTEUS}/moteus_protocol.h ${INCLUDE_DIR_MOTEUS}/pi3hat_moteus_interface.h)
+set(LIBRARY_SOURCE ${SOURCE_DIR_MOTEUS}/moteus_control_example.cc)
+add_library(${PROJECT_NAME}-object OBJECT ${LIBRARY_SOURCE})
+# this is only needed for older compilers but doesn't hurt either to have it
+set_target_properties(${PROJECT_NAME}-object PROPERTIES POSITION_INDEPENDENT_CODE 1)
+add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:${PROJECT_NAME}-object>)
+add_library(${PROJECT_NAME}-static STATIC $<TARGET_OBJECTS:${PROJECT_NAME}-object>)
 
-target_link_libraries(moteus_control_example bcm_host Threads::Threads pi3hat)
+#add_executable(moteus_control_example ${SOURCE_DIR_MOTEUS}/moteus_control_example.cc ${INCLUDE_DIR_MOTEUS}/realtime.h
+#		${INCLUDE_DIR_MOTEUS}/moteus_protocol.h ${INCLUDE_DIR_MOTEUS}/pi3hat_moteus_interface.h ${INCLUDE_DIR_PI3HAT}/pi3hat.h)
 
-#set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "include/moteus_protocol.h; include/pi3hat_moteus_interface.h")
+#target_link_libraries(moteus_control_example bcm_host Threads::Threads)
 
-#INSTALL(TARGETS ${PROJECT_NAME}
-#        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#	PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
-#	INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-#        ARCHIVE DESTINATION lib
-#       )
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "include/moteus_protocol.h;include/pi3hat_moteus_interface.h;include/realtime.h")
+INSTALL(TARGETS ${PROJECT_NAME}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME} 
+        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} 
+        ARCHIVE DESTINATION lib
+       )
 

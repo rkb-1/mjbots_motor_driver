@@ -1,6 +1,5 @@
 # set the project name
 project(pi3hat)
-
 set(SOURCE_DIR_PI3HAT ${PROJECT_SOURCE_DIR}/src)
 set(INCLUDE_DIR_PI3HAT ${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR})
@@ -22,7 +21,7 @@ target_link_libraries(pi3hat_tool bcm_host)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "include/pi3hat.h")
 
-INSTALL(TARGETS ${PROJECT_NAME}_tool
+INSTALL(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_tool
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
