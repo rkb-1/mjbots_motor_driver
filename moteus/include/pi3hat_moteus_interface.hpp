@@ -23,9 +23,9 @@
 #include <thread>
 #include <vector>
 
-#include "pi3hat.h"
+#include "pi3hat.hpp"
 
-#include "realtime.h"
+#include "realtime.hpp"
 
 namespace mjbots {
 namespace moteus {

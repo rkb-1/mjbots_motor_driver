@@ -6,7 +6,7 @@ include_directories(${PROJECT_SOURCE_DIR})
 include_directories(${SOURCE_DIR_PI3HAT})
 include_directories(${INCLUDE_DIR_PI3HAT})
 
-set(LIBRARY_SOURCE ${SOURCE_DIR_PI3HAT}/pi3hat.cc)
+set(LIBRARY_SOURCE ${SOURCE_DIR_PI3HAT}/pi3hat.cpp)
 
 add_library(${PROJECT_NAME}-object OBJECT ${LIBRARY_SOURCE})
 
@@ -16,10 +16,10 @@ add_library(${PROJECT_NAME} SHARED $<TARGET_OBJECTS:${PROJECT_NAME}-object>)
 add_library(${PROJECT_NAME}-static STATIC $<TARGET_OBJECTS:${PROJECT_NAME}-object>)
 
 #Example for executable file for testing. Can use help commands to see if they are installed properly
-add_executable(pi3hat_tool ${INCLUDE_DIR_PI3HAT}/pi3hat.h ${SOURCE_DIR_PI3HAT}/pi3hat.cc ${SOURCE_DIR_PI3HAT}/pi3hat_tool.cc)
+add_executable(pi3hat_tool ${INCLUDE_DIR_PI3HAT}/pi3hat.hpp ${SOURCE_DIR_PI3HAT}/pi3hat.cpp ${SOURCE_DIR_PI3HAT}/pi3hat_tool.cpp)
 target_link_libraries(pi3hat_tool bcm_host)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "include/pi3hat.h")
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "include/pi3hat.hpp")
 
 INSTALL(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_tool
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
