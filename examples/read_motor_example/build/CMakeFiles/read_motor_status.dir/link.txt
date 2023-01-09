@@ -1,1 +1,0 @@
-/usr/bin/c++  -std=c++11 CMakeFiles/read_motor_status.dir/read_motor_status.cpp.o -o read_motor_status   -L/usr/local/lib/aarch64-linux-gnu  -Wl,-rpath,/usr/local/lib/aarch64-linux-gnu -lpi3hat -lmoteus -lbcm_host -pthread 
