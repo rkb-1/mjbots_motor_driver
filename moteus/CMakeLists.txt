@@ -13,6 +13,7 @@ include_directories(${SOURCE_DIR_MOTEUS})
 include_directories(${INCLUDE_DIR_MOTEUS})
 include_directories(${INCLUDE_DIR_PI3HAT})
 
+set(LIBRARY_NAME ${PROJECT_NAME} CACHE INTERNAL "")
 set(LIBRARY_SOURCE ${SOURCE_DIR_MOTEUS}/moteus_control_example.cpp)
 add_library(${PROJECT_NAME}-object OBJECT ${LIBRARY_SOURCE})
 # this is only needed for older compilers but doesn't hurt either to have it

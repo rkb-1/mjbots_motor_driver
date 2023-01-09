@@ -2,10 +2,13 @@
 project(pi3hat)
 set(SOURCE_DIR_PI3HAT ${PROJECT_SOURCE_DIR}/src)
 set(INCLUDE_DIR_PI3HAT ${PROJECT_SOURCE_DIR}/include)
+set(lib_INCLUDE_DIR ${INCLUDE_DIR_PI3HAT} CACHE INTERNAL "")
+
 include_directories(${PROJECT_SOURCE_DIR})
 include_directories(${SOURCE_DIR_PI3HAT})
 include_directories(${INCLUDE_DIR_PI3HAT})
 
+set(LIBRARY_NAME ${PROJECT_NAME} CACHE INTERNAL "")
 set(LIBRARY_SOURCE ${SOURCE_DIR_PI3HAT}/pi3hat.cpp)
 
 add_library(${PROJECT_NAME}-object OBJECT ${LIBRARY_SOURCE})
