@@ -1,0 +1,3 @@
+/home/pi/read_motor_example/build/CMakeFiles/rebuild_cache.dir
+/home/pi/read_motor_example/build/CMakeFiles/edit_cache.dir
+/home/pi/read_motor_example/build/CMakeFiles/read_motor_status.dir
