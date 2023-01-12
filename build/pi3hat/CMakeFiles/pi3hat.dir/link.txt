@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -std=c++11 -shared -Wl,-soname,libpi3hat.so -o libpi3hat.so CMakeFiles/pi3hat-object.dir/src/pi3hat.cpp.o   -L/opt/vc/lib 

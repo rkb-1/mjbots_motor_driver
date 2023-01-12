@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -std=c++11 -shared -Wl,-soname,libmoteus.so -o libmoteus.so CMakeFiles/moteus-object.dir/src/moteus_control_example.cpp.o   -L/opt/vc/lib 

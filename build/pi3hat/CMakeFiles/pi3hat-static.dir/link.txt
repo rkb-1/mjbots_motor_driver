@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpi3hat-static.a CMakeFiles/pi3hat-object.dir/src/pi3hat.cpp.o
+/usr/bin/ranlib libpi3hat-static.a

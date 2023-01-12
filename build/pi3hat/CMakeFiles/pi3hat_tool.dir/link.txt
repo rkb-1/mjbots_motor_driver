@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 CMakeFiles/pi3hat_tool.dir/src/pi3hat.cpp.o CMakeFiles/pi3hat_tool.dir/src/pi3hat_tool.cpp.o -o pi3hat_tool   -L/opt/vc/lib  -Wl,-rpath,/opt/vc/lib: -lbcm_host 

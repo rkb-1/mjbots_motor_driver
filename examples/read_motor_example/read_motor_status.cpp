@@ -37,8 +37,8 @@
 #include <thread>
 #include <vector>
 
-#include "moteus_protocol.hpp"
-#include "pi3hat_moteus_interface.hpp"
+#include "moteus/moteus_protocol.hpp"
+#include "moteus/pi3hat_moteus_interface.hpp"
 
 using namespace mjbots;
 
@@ -193,12 +193,12 @@ class SampleController {
       }
        if (!std::isnan(primary_initial_)) {
          // We have everything we need to start commanding.
-         auto& secondary_out = output->at(0);  // We constructed this, so we know the order.
-         secondary_out.mode = moteus::Mode::kPosition;
-         secondary_out.position.position = primary_initial_ + 0.1;
+      //   auto& secondary_out = output->at(0);  // We constructed this, so we know the order.
+      //   secondary_out.mode = moteus::Mode::kPosition;
+      //   secondary_out.position.position = primary_initial_ + 0.1;
 	 //std::cout<<"\ncomputed : " << secondary_out.position.position;
-         secondary_out.position.velocity = 0.2;
-         secondary_out.position.maximum_torque = 0.3;
+      //   secondary_out.position.velocity = 0.2;
+       //  secondary_out.position.maximum_torque = 0.3;
        }
       // double secondary_pos = Get(status, arguments_.secondary_id).position;
       // if (!std::isnan(secondary_pos) && std::isnan(secondary_initial_)) {

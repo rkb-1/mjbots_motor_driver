@@ -23,7 +23,7 @@
 #include <thread>
 #include <vector>
 
-#include "pi3hat.hpp"
+#include "pi3hat/pi3hat.hpp"
 
 #include "realtime.hpp"
 

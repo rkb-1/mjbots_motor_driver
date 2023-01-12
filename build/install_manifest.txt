@@ -1,0 +1,7 @@
+/usr/local/lib/aarch64-linux-gnu/libpi3hat.so
+/usr/local/include/pi3hat/pi3hat.hpp
+/usr/local/bin/pi3hat_tool
+/usr/local/lib/aarch64-linux-gnu/libmoteus.so
+/usr/local/include/moteus/moteus_protocol.hpp
+/usr/local/include/moteus/pi3hat_moteus_interface.hpp
+/usr/local/include/moteus/realtime.hpp
