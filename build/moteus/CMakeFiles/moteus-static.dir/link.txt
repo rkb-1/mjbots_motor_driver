@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmoteus-static.a CMakeFiles/moteus-object.dir/src/moteus_control_example.cpp.o
-/usr/bin/ranlib libmoteus-static.a
